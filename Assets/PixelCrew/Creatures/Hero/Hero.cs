@@ -9,6 +9,7 @@ namespace PixelCrew.Creatures
     public class Hero : Creature
     {
         [SerializeField] private float _slamDownVelocity = 8f;
+        [SerializeField] private float _damageSlow = 1f;
         [SerializeField] private LayerCheck _wallCheck;
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -91,7 +92,7 @@ namespace PixelCrew.Creatures
 
         public void DamageSlow()
         {
-            _speed = _speed * 0.5f;
+            _speed = _speed * _damageSlow;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
